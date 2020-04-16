@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <RadioGroup
+        android:id="@+id/rg_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_channel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="18sp"
+            android:drawableTop="@drawable/tab_menu_channel"
+            android:text="主页" />
+
+        <RadioButton
+            android:id="@+id/rb_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="18sp"
+            android:drawableTop="@drawable/tab_menu_message"
+            android:text="疫情消息" />
+
+        <RadioButton
+            android:id="@+id/rb_better"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="18sp"
+            android:drawableTop="@drawable/tab_menu_fatest_news"
+            android:text="最新消息" />
+
+        <RadioButton
+            android:id="@+id/rb_setting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="18sp"
+            android:drawableTop="@drawable/tab_menu_mine"
+            android:text="个人中心" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/div_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_above="@id/rg_tab_bar"
+        android:background="#fff" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/div_tab_bar"
+        android:background="#C7C9CC"/>
+
+</RelativeLayout>
