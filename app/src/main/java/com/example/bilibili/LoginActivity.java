@@ -1,24 +1,38 @@
 package com.example.bilibili;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.sql.BatchUpdateException;
 
 public class LoginActivity extends AppCompatActivity {
 
     ImageView imageView;
     TextView textView;
+    Button titelBack;
 
     int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+//        隐藏头部的那个啥，并自定义
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null)
+            actionBar.hide();
+
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
+        titelBack = findViewById(R.id.title_back);
+
         imageView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             public void onSwipeTop() {
             }
@@ -50,6 +64,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onSwipeBottom() {
             }
 
+        });
+
+        titelBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
     }
 }
