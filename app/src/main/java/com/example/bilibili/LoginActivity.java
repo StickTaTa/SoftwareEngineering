@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
         titelBack = findViewById(R.id.title_back);
+//        对返回按钮进行动态设置
+        titelBack.setText("返回");
 
         imageView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             public void onSwipeTop() {

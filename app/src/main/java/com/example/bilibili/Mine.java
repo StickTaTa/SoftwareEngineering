@@ -1,5 +1,6 @@
 package com.example.bilibili;
 
+import android.app.Activity;
 import android.app.AppComponentFactory;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +15,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -28,13 +32,15 @@ public class Mine extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView shezhi;
+    private Button titleSet;
+    private TextView titleTextView;
     private Context context;
     private PopupWindow mPopWindow;
     private PopupWindow mPopupWindow;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public Mine() {
         // Required empty public constructor
@@ -67,21 +73,28 @@ public class Mine extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
     }
 
     View mine;
     View contentView;
     TextView pop_denglu;
     TextView pop_zhuxiao;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mine = inflater.inflate(R.layout.fragment_mine,container,false);
-        shezhi = mine.findViewById(R.id.mine_shezhi);
+        mine = inflater.inflate(R.layout.fragment_mine, container, false);
+        titleSet = mine.findViewById(R.id.title_set);
+        titleTextView = mine.findViewById(R.id.title_textView);
         contentView = inflater.inflate(R.layout.shezhi_popip, null);
+
+        titleTextView.setText("个人中心");
+        titleSet.setText("设置");
+
         //构造popwindow
-        shezhi.setOnClickListener(new View.OnClickListener() {
+        titleSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View pop = LayoutInflater.from(mine.getContext()).inflate(R.layout.shezhi_popip, null, false);
@@ -107,7 +120,7 @@ public class Mine extends Fragment {
 
 
                 //设置popupWindow显示的位置，参数依次是参照View，x轴的偏移量，y轴的偏移量
-                popWindow.showAsDropDown(shezhi, -30, 0);
+                popWindow.showAsDropDown(titleSet, -30, 0);
 
             }
         });
@@ -117,7 +130,7 @@ public class Mine extends Fragment {
         pop_denglu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
 
 
@@ -125,7 +138,6 @@ public class Mine extends Fragment {
         });
         return mine;
     }
-
 
 
 }
