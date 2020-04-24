@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
 
     ImageView imageView;
     TextView textView;
-    Button titelBack;
+    Button titleBack;
 
     int count = 0;
 
@@ -31,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
-        titelBack = findViewById(R.id.title_back);
+        titleBack = findViewById(R.id.title_back);
 //        对返回按钮进行动态设置
-        titelBack.setText("返回");
+        titleBack.setText("返回");
 
         imageView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             public void onSwipeTop() {
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
-        titelBack.setOnClickListener(new View.OnClickListener() {
+        titleBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
